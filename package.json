@@ -7,9 +7,19 @@
     "start": "node index"
   },
   "keywords": [
-    "shorterurl"
+    "shorterurl",
+    "short",
+    "tiny",
+    "id",
+    "uuid",
+    "bitly",
+    "shorten",
+    "mongoid",
+    "shortid",
+    "tinyid"
   ],
-  "author": "Kasra Karami",
+  "repository": "KasraK2K/shorterurl",
+  "author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "sequelize": "^6.3.4",

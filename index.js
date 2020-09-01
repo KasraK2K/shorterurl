@@ -65,15 +65,5 @@ const getOriginalUrl = async (short_url) => {
   }
 };
 
-// (async () => {
-//   console.log(
-//     await getShortUrl("http://localhost:3500/users/approve/token/QwwUxo9JE")
-//   );
-// })();
-
-(async () => {
-  console.log(await getOriginalUrl("v9ZejhX3Ba"));
-})();
-
 module.exports.getShortUrl = getShortUrl;
 module.exports.getOriginalUrl = getOriginalUrl;

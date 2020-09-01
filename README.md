@@ -8,7 +8,6 @@ you can short an URL by [`getShortUrl`](#get-short-url-) and also you can pass y
 
 `shorterurl` store a result in a *database* at *`./shorterurl-database/database.sqlite`*
 
-##### if you want to validate [`getShortUrl`](#get-short-url-) token, we have used [`shortId`](https://www.npmjs.com/package/shortid) in our package, so you can use *shortId* for your token validation.
 
 ## Example:
 
@@ -26,6 +25,7 @@ const LONG_URL = "https://www.npmjs.com/package/shorterurl"
 })();   // it's gave you a token like "1rfN5BOw3"
 ```
 
+##### if you want to validate [`getShortUrl`](#get-short-url-) token, we have used [`shortId`](https://www.npmjs.com/package/shortid) in our package, so you can use *shortId* for your token validation.
 
 
 ##### get Original URL :

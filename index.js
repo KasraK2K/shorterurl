@@ -21,8 +21,13 @@ ShortUrl.init(
   { sequelize, modelName: "urls" }
 );
 
-/* insert function */
-const insert = async (original) => {
+/**
+ *
+ *
+ * @param {*} original this parameter is your original url as string
+ * @return {*} string we call that short_url
+ */
+const getShortUrl = async (original) => {
   await sequelize.sync();
   const url = await ShortUrl.create({
     short_url: short_id,
@@ -31,8 +36,13 @@ const insert = async (original) => {
   return url.toJSON().short_url;
 };
 
-/* get function */
-const getUrl = async (short_url) => {
+/**
+ *
+ *
+ * @param {*} short_url this parameter is returned when using getShortUrl()
+ * @return {*} original url as string
+ */
+const getOriginalUrl = async (short_url) => {
   try {
     const url = await ShortUrl.findOne({
       where: {
@@ -55,5 +65,5 @@ const getUrl = async (short_url) => {
   }
 };
 
-module.exports.insert = insert;
-module.exports.getUrl = getUrl;
+module.exports.insert = getShortUrl;
+module.exports.getUrl = getOriginalUrl;

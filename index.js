@@ -2,12 +2,21 @@
 const shortid = require("shortid");
 const { Sequelize, Model, DataTypes, Op } = require("sequelize");
 
-// create sequelize constant
+/**
+ * @type {*} create sequelize database in file
+ * comment this if you wish save data in memory
+ */
 const sequelize = new Sequelize({
   dialect: "sqlite",
   storage: "shorterurl-database/database.sqlite",
   logging: false,
 });
+
+/**
+ * @type {*} create sequelize database in memory
+ * uncomment this if you wish save data in memory
+ */
+// const sequelize = new Sequelize("sqlite::memory:", { logging: false });
 
 const short_id = shortid.generate();
 
@@ -22,8 +31,6 @@ ShortUrl.init(
 );
 
 /**
- *
- *
  * @param {*} original this parameter is your original url as string
  * @return {*} string we call that short_url
  */
@@ -37,8 +44,6 @@ const getShortUrl = async (original) => {
 };
 
 /**
- *
- *
  * @param {*} short_url this parameter is returned when using getShortUrl()
  * @return {*} original url as string
  */

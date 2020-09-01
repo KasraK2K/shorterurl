@@ -1,6 +1,6 @@
 {
   "name": "shorterurl",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "this package help to us to make url shortener and easier to read",
   "main": "index.js",
   "scripts": {

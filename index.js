@@ -2,17 +2,17 @@
 const shortid = require("shortid");
 const resolve = require("path").resolve;
 const { Sequelize, Model, DataTypes, Op } = require("sequelize");
+
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: "shorterurl-database/database.sqlite",
+  storage: resolve(__dirname, "database/database.sqlite"),
+  logging: false,
 });
 
-/* create short url token */
 const short_id = shortid.generate();
 
 class ShortUrl extends Model {}
 
-/* create short url table */
 ShortUrl.init(
   {
     short_url: DataTypes.STRING,
@@ -37,10 +37,15 @@ const getUrl = async (short_url) => {
     const url = await ShortUrl.findOne({
       where: {
         short_url,
-        createdAt: {
-          [Op.lt]: new Date(),
-          [Op.gt]: new Date(new Date() - 5 * 60 * 60 * 1000),
-        },
+        /**
+         * 
+         * uncomment and change this if you need to filter result
+         * 
+          createdAt: {
+            [Op.lt]: new Date(),
+            [Op.gt]: new Date(new Date() - 5 * 60 * 60 * 1000),
+          },
+         */
       },
     });
     if (url) return url.original_url;

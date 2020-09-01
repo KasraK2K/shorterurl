@@ -65,8 +65,22 @@ const getOriginalUrl = async (short_url) => {
     });
     if (url) return url.original_url;
     else return undefined;
-  } catch (e) {
+  } catch (error) {
     throw new Error(`error on get url: ${short_url}`);
+  }
+};
+
+const purge = async (timestamp) => {
+  try {
+    ShortUrl.destroy({
+      where: {
+        createdAt: {
+          [Op.lt]: new Date(timestamp),
+        },
+      },
+    });
+  } catch (error) {
+    throw new Error(`error on purge data: ${error.message}`);
   }
 };
 

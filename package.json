@@ -1,6 +1,6 @@
 {
   "name": "shorterurl",
-  "version": "1.0.10",
+  "version": "1.1.1",
   "description": "this package help to us to make url shortener and easier to read",
   "main": "index.js",
   "scripts": {
@@ -20,6 +20,17 @@
   ],
   "repository": "KasraK2K/shorterurl",
   "author": "Kasra Karami <Kasra.Karami.KK@gmail.com>",
+  "contributors": [
+    {
+      "name": "Kasra Karami",
+      "email": "Kasra.Karami.KK@gmail.com",
+      "url": "https://ias.co.ir/"
+    },
+    {
+      "name": "Kaveh Karami",
+      "email": "Kaveh.Karami.KK@gmail.com"
+    }
+  ],
   "license": "MIT",
   "dependencies": {
     "sequelize": "^6.3.4",

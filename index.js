@@ -65,5 +65,5 @@ const getOriginalUrl = async (short_url) => {
   }
 };
 
-module.exports.insert = getShortUrl;
-module.exports.getUrl = getOriginalUrl;
+module.exports.getShortUrl = getShortUrl;
+module.exports.getOriginalUrl = getOriginalUrl;

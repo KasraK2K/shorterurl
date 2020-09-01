@@ -1,23 +1,11 @@
 // default modules
 const shortid = require("shortid");
-const { existsSync, mkdirSync, writeFileSync } = require("fs");
-const { resolve } = require("path");
 const { Sequelize, Model, DataTypes, Op } = require("sequelize");
-
-// check is database exist or create that
-const databaseFolder = resolve(__dirname, "database");
-const databaseFile = resolve(databaseFolder, "database.sqlite");
-
-const databaseFolderExist = existsSync(databaseFolder);
-if (!databaseFolderExist) mkdirSync(databaseFolder);
-
-const databaseFileExist = existsSync(databaseFile);
-if (!databaseFileExist) writeFileSync(databaseFile, "");
 
 // create sequelize constant
 const sequelize = new Sequelize({
   dialect: "sqlite",
-  storage: databaseFile,
+  storage: "shorterurl-database/database.sqlite",
   logging: false,
 });
 

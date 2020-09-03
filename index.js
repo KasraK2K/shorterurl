@@ -34,7 +34,7 @@ ShortUrl.init(
  * @param {*} original this parameter is your original url as string
  * @return {*} string we call that short_url
  */
-const getShortUrl = async (original) => {
+const getShorter = async (original) => {
   await sequelize.sync();
   const url = await ShortUrl.create({
     short_url: short_id,
@@ -44,10 +44,10 @@ const getShortUrl = async (original) => {
 };
 
 /**
- * @param {*} short_url this parameter is returned when using getShortUrl()
+ * @param {*} short_url this parameter is returned when using getShorter()
  * @return {*} original url as string
  */
-const getOriginalUrl = async (short_url) => {
+const getOriginal = async (short_url) => {
   try {
     const url = await ShortUrl.findOne({
       where: {
@@ -84,5 +84,6 @@ const purge = async (timestamp) => {
   }
 };
 
-module.exports.getShortUrl = getShortUrl;
-module.exports.getOriginalUrl = getOriginalUrl;
+module.exports.getShorter = getShorter;
+module.exports.getOriginal = getOriginal;
+module.exports.purge = purge;

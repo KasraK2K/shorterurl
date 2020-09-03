@@ -42,6 +42,7 @@ const getShorter = async (original) => {
   });
   return url.toJSON().short_url;
 };
+const getShortUrl = (original) => getShorter(original); // i will depricate in version 2.0.0
 
 /**
  * @param {*} short_url this parameter is returned when using getShorter()
@@ -69,6 +70,7 @@ const getOriginal = async (short_url) => {
     throw new Error(`error on get url: ${short_url}`);
   }
 };
+const getOriginalUrl = (short_url) => getOriginal(short_url); // i will depricate in version 2.0.0
 
 const purge = async (timestamp) => {
   try {
@@ -85,5 +87,9 @@ const purge = async (timestamp) => {
 };
 
 module.exports.getShorter = getShorter;
+module.exports.getShortUrl = getShortUrl;
+
 module.exports.getOriginal = getOriginal;
+module.exports.getOriginalUrl = getOriginalUrl;
+
 module.exports.purge = purge;

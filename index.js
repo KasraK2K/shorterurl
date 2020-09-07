@@ -21,8 +21,9 @@ const { Sequelize, Model, DataTypes, Op } = require("sequelize");
 let sequelize;
 
 // set database type
-const type = (databaseType) => {
-  if (databaseType === "MEMORY") {
+const type = async (databaseType) => {
+  const dbType = await databaseType.toUpperCase();
+  if (dbType === "MEMORY") {
     sequelize = new Sequelize("sqlite::memory:", { logging: false });
   } else {
     sequelize = new Sequelize({
@@ -106,7 +107,7 @@ const purge = async (timestamp) => {
 };
 
 (async () => {
-  // await type("MEMORY");
+  await type("Memory");
   const short = await getShorter("https://www.ias.co.ir/long_path");
   console.log("short url: ", short);
 })();

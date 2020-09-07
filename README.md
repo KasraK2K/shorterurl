@@ -12,6 +12,8 @@ this package is useful when you need to make your string safer and shorter.
 
 - for transfer your token to original string you should use method [`getOriginal`](#get-original-stringurl-) and pass your token.
 
+- for save the data in your memory instead database you should use method [`type`](#save-in-memory-) and pass _`MEMORY`_ as an argument in that.
+
 - for remove your un necessary data you can use method [`purge`](#purge-data-) and you should pass a timestamp and then purge method delete all data before that time.
 
 `shorterurl` is a _`Promise`_ base, so you only need to use it as an _`await`_.
@@ -23,14 +25,14 @@ this package is useful when you need to make your string safer and shorter.
 ##### get Short string/url :
 
 ```javascript
-const shorter = require("shorterurl");****
-const LONG_URL = "https://www.npmjs.com/package/shorterurl"
-
-// make string/url Shorter
-(async () => {
-  const short = await shorter.getShorter(LONG_URL);
-  console.log("short url: ", short);
-})();   // it's gave you a token like "1rfN5BOw3"
+const shorter = require("shorterurl");
+const LONG_URL = "https://www.npmjs.com/package/shorterurl"(
+  // make string/url Shorter
+  async () => {
+    const short = await shorter.getShorter(LONG_URL);
+    console.log("short url: ", short);
+  }
+)(); // it's gave you a token like "1rfN5BOw3"
 ```
 
 > if you want to validate [`getShorter`](#get-shorter) token, we have used [`shortId`](https://www.npmjs.com/package/shortid) in our package, so you can use _shortId_ for your token validation.
@@ -56,5 +58,18 @@ const shorter = require("shorterurl");
 (async () => {
   await shorter.purge(Date.now());
   console.log("all data is deleted");
+})();
+```
+
+##### save in memory :
+
+```javascript
+const shorter = require("shorterurl");
+const LONG_URL = "https://www.npmjs.com/package/shorterurl";
+
+(async () => {
+  await shorter.type("MEMORY");
+  const short = await shorter.getShorter(LONG_URL);
+  console.log("short url: ", short);
 })();
 ```

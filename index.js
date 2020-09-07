@@ -106,7 +106,6 @@ const purge = async (timestamp) => {
 };
 
 (async () => {
-  // await type("MEMORY");
   const short = await getShorter("https://www.ias.co.ir/long_path");
   console.log("short url: ", short);
 })();

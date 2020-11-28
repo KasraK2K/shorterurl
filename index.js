@@ -22,8 +22,7 @@ let sequelize;
 
 // set database type
 const type = async (databaseType) => {
-  const dbType = await databaseType.toUpperCase();
-  if (dbType === "MEMORY") {
+  if (databaseType && databaseType.toUpperCase() === "MEMORY") {
     sequelize = new Sequelize("sqlite::memory:", { logging: false });
   } else {
     sequelize = new Sequelize({
